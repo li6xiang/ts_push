@@ -1,0 +1,4 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/li6xiang/nfsdir/w55fa92bsp-2.6.35/linux-2.6.35.4/arch/arm/boot'
+let g:netrw_dirhist_2='/home/li6xiang/mstar/proj'
