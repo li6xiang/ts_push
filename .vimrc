@@ -1,3 +1,7 @@
+set encoding=utf-8
+" set termencoding=gb18030
+" "set fileencoding=chinese 
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set nocp
 filetype plugin on
 filetype indent on
