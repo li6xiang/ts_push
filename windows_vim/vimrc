@@ -149,7 +149,9 @@ nnoremap dd "_dd
 
 
 function! Refresh_tag_and_rest_connect()
+	cs kill 0
 	exec "!mytag.bat"
+	cs add cscope.out
 	cs reset 
 endfunction
 map <F5> :call Refresh_tag_and_rest_connect()<CR>
