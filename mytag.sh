@@ -15,7 +15,7 @@ find `pwd` -path "$dir/build" -prune -o \
 	-name "*.cc" -print -o\
 	-name Makefile  -print> cscope.files
 #sed -i 's/[ ]/\\ /g' cscope.files
-ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -L cscope.files
+ctags -R --c++-kinds=+p --fields=+iaSl --extra=+q -L cscope.files
 sed -i 's/^/"/;s/$/"/' cscope.files
 cscope -b -q -k
 #ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --exclude=build/*
