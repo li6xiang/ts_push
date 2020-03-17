@@ -40,7 +40,7 @@ hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=whi
 set hlsearch
 " set cscope
 set csto=0
-set cst
+set nocst
 set nocsverb
 cs add cscope.out
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
