@@ -143,7 +143,7 @@ nnoremap dd "_dd
 
 function! Refresh_tag_and_rest_connect()
 	exec "!mytag.sh"
-	cs reset 
+	exec "cs reset"
 endfunction
 map <F5> :call Refresh_tag_and_rest_connect()<CR>
 
@@ -260,3 +260,14 @@ func SetTitle()
 		endif
 	endif
 endfunc
+
+
+function! Mysearch()
+	let mycmd = 'grep -rn '.expand("<cword>").' ./'.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o"'
+	silent execute mycmd
+endfunction
+map gs :call Mysearch()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
+" let g:EasyGrepRecursive = 1
+" let g:EasyGrepWindowPosition = botright
+" let g:EasyGrepCommand = 1
+" let g:EasyGrepJumpToMatch = 0
