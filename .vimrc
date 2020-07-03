@@ -143,6 +143,7 @@ nnoremap dd "_dd
 
 function! Refresh_tag_and_rest_connect()
 	exec "!mytag.sh"
+	exec "cs add cscope.out"
 	exec "cs reset"
 endfunction
 map <F5> :call Refresh_tag_and_rest_connect()<CR>
@@ -267,6 +268,17 @@ function! Mysearch()
 	silent execute mycmd
 endfunction
 map gs :call Mysearch()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
+
+function! MysearchCurfile()
+	"get current filr dir
+	let mycurdir = substitute(expand("%:p"),'^\(.*[/\\]\)[^/\\]*$','\1','e')
+	let mycmd = 'grep -rn '.expand("<cword>").' '.mycurdir.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o"'
+	echo mycmd
+	silent execute mycmd
+endfunction
+map ss :call MysearchCurfile()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
+
+map cw :botright cwindow<CR>
 " let g:EasyGrepRecursive = 1
 " let g:EasyGrepWindowPosition = botright
 " let g:EasyGrepCommand = 1
