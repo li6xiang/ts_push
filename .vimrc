@@ -205,7 +205,7 @@ endfunc
 " 加入shell,Makefile注释
 func SetComment_sh()
 	call setline(3, "#================================================================")
-	call setline(4, "#   Copyright (C) ".strftime("%Y")." Sangfor Ltd. All rights reserved.")
+	call setline(4, "#   Copyright (C) ".strftime("%Y")." FireFireFire Ltd. All rights reserved.")
 	call setline(5, "#   ")
 	call setline(6, "#   文件名称：".expand("%:t"))
 	call setline(7, "#   创 建 者：lixiang fire")
@@ -264,7 +264,7 @@ endfunc
 
 
 function! Mysearch()
-	let mycmd = 'grep -rn '.expand("<cword>").' ./'.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o"'
+	let mycmd = 'grep -rn '.expand("<cword>").' ./'.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o" --exclude="cscope.*" --exclude="tags"'
 	silent execute mycmd
 endfunction
 map gs :call Mysearch()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
@@ -272,11 +272,11 @@ map gs :call Mysearch()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
 function! MysearchCurfile()
 	"get current filr dir
 	let mycurdir = substitute(expand("%:p"),'^\(.*[/\\]\)[^/\\]*$','\1','e')
-	let mycmd = 'grep -rn '.expand("<cword>").' '.mycurdir.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o"'
+	let mycmd = 'grep -rn '.expand("<cword>").' '.mycurdir.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o" --exclude="cscope.*" --exclude="tags"'
 	echo mycmd
 	silent execute mycmd
 endfunction
-map ss :call MysearchCurfile()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
+map ds :call MysearchCurfile()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
 
 map cw :botright cwindow<CR>
 " let g:EasyGrepRecursive = 1
