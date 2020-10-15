@@ -43,48 +43,48 @@ set csto=0
 set nocst
 set nocsverb
 cs add cscope.out
-nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-	nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-	nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+	nnoremap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	nnoremap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 	" Using 'CTRL-spacebar' then a search type makes the vim window
 	" split horizontally, with search result displayed in
 	" the new window.
 
-	nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-	nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-	nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+	nnoremap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	nnoremap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
 
 	" Hitting CTRL-space *twice* before the search type does a vertical
 	" split instead of a horizontal one
 
-	nmap <C-Space><C-Space>s
+	nnoremap <C-Space><C-Space>s
 		\:vert scs find s <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space><C-Space>g
+	nnoremap <C-Space><C-Space>g
 		\:vert scs find g <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space><C-Space>c
+	nnoremap <C-Space><C-Space>c
 		\:vert scs find c <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space><C-Space>t
+	nnoremap <C-Space><C-Space>t
 		\:vert scs find t <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space><C-Space>e
+	nnoremap <C-Space><C-Space>e
 		\:vert scs find e <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-Space><C-Space>i
+	nnoremap <C-Space><C-Space>i
 		\:vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-	nmap <C-Space><C-Space>d
+	nnoremap <C-Space><C-Space>d
 		\:vert scs find d <C-R>=expand("<cword>")<CR><CR>
 
-nmap <F9> :NERDTreeToggle<CR>
-nmap <F10> :TlistToggle<CR>
+nnoremap <F9> :NERDTreeToggle<CR>
+nnoremap <F10> :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
 syntax enable
 "set t_Co=256
@@ -108,7 +108,7 @@ function! Mydict()
 	1s/^/\=expl/
 	1
 endfunction
-nmap F :call Mydict()<CR>
+nnoremap F :call Mydict()<CR>
 
 "-- omnicppcomplete setting --
 "" 按下F3自动补全代码，注意该映射语句后不能有其他字符，包括tab；否则按下F3会自动补全一些乱码
@@ -181,7 +181,7 @@ let g:syntastic_mode_map = {
 			\ "active_filetypes": [],
 			\ "passive_filetypes": [] }
 
-nmap <Tab> %
+nnoremap <Tab> %
 "set path to current dir ,so gf can find head file
 let &path .= getcwd().'/**'
 nnoremap gf :vsp<CR>gf
@@ -264,21 +264,22 @@ endfunc
 
 
 function! Mysearch()
-	let mycmd = 'grep -rn '.expand("<cword>").' ./'.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o" --exclude="cscope.*" --exclude="tags"'
+	let mycmd = 'grep -rn '.expand("<cword>").' ./'.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o" --exclude="cscope.*" --exclude="tags" --exclude="ctags"'
 	silent execute mycmd
 endfunction
-map gs :call Mysearch()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
+nnoremap gs :call Mysearch()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
 
 function! MysearchCurfile()
 	"get current filr dir
 	let mycurdir = substitute(expand("%:p"),'^\(.*[/\\]\)[^/\\]*$','\1','e')
-	let mycmd = 'grep -rn '.expand("<cword>").' '.mycurdir.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o" --exclude="cscope.*" --exclude="tags"'
+	let mycmd = 'grep -rn '.expand("<cword>").' '.mycurdir.'  --exclude=".*" --exclude="*.tmp" --exclude="*.o" --exclude="cscope.*" --exclude="tags" --exclude="ctags"'
 	echo mycmd
 	silent execute mycmd
 endfunction
-map ds :call MysearchCurfile()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
+nnoremap ds :call MysearchCurfile()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
 
-map cw :botright cwindow<CR>
+nnoremap cw :botright cwindow<CR>
+nnoremap <C-O> <C-T>
 " let g:EasyGrepRecursive = 1
 " let g:EasyGrepWindowPosition = botright
 " let g:EasyGrepCommand = 1
