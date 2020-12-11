@@ -43,14 +43,14 @@ set csto=0
 set nocst
 set nocsverb
 cs add cscope.out
-nnoremap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nnoremap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-	nnoremap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-	nnoremap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-	nnoremap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-	nnoremap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Space>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Space>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Space>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Space>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <Space>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <Space>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+	nnoremap <Space>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	nnoremap <Space>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 	" Using 'CTRL-spacebar' then a search type makes the vim window
 	" split horizontally, with search result displayed in
@@ -103,7 +103,7 @@ function! Mydict()
 	windo if
 		\ expand("%")=="diCt-tmp" |
 		\ q!|endif
-	25vsp diCt-tmp
+	25sp diCt-tmp
 	setlocal buftype=nofile bufhidden=hide noswapfile
 	1s/^/\=expl/
 	1
@@ -280,6 +280,7 @@ nnoremap ds :call MysearchCurfile()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
 
 nnoremap cw :botright cwindow<CR>
 nnoremap <C-O> <C-T>
+nnoremap <C-T> <C-O>
 " let g:EasyGrepRecursive = 1
 " let g:EasyGrepWindowPosition = botright
 " let g:EasyGrepCommand = 1
