@@ -285,3 +285,12 @@ nnoremap <C-T> <C-O>
 " let g:EasyGrepWindowPosition = botright
 " let g:EasyGrepCommand = 1
 " let g:EasyGrepJumpToMatch = 0
+" syntastic------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0

@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/li6xiang/nfsdir/w55fa92bsp-2.6.35/linux-2.6.35.4/arch/arm/boot'
 let g:netrw_dirhist_2='/home/li6xiang/mstar/proj'
+let g:netrw_dirhist_3='/home/li6xiang'
+let g:netrw_dirhist_4='/home/li6xiang/.vim/plugin'
+let g:netrw_dirhist_5='/home/li6xiang/ok5718/OK5718-SDK-V1.0/OK57xx-linux-kernel/arch/arm/kernel'
+let g:netrw_dirhist_6='/home/li6xiang/ok5718/OK5718-SDK-V1.0/OK57xx-linux-kernel/drivers/gpio'
+let g:netrw_dirhist_7='/home/li6xiang/ok5718/OK5718-SDK-V1.0/OK57xx-linux-kernel/drivers/leds'
