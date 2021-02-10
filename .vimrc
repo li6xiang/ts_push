@@ -184,7 +184,7 @@ let g:syntastic_mode_map = {
 nnoremap <Tab> %
 "set path to current dir ,so gf can find head file
 let &path .= getcwd().'/**'
-nnoremap gf :vsp<CR>gf
+nnoremap gd g*
 
 " 当新建 .h .c .hpp .cpp .mk .sh等文件时自动调用SetTitle 函数
 autocmd BufNewFile *.[ch],*.hpp,*.cpp,Makefile,*.mk,*.sh exec ":call SetTitle()"
@@ -281,14 +281,18 @@ nnoremap ds :call MysearchCurfile()<CR><C-O>:botright cwindow<CR><C-W>j<C-L>
 nnoremap cw :botright cwindow<CR>
 nnoremap <C-O> <C-T>
 nnoremap <C-T> <C-O>
+"在cpp和头文件间来回切换，主要有利于c++编写
+nnoremap <Space>a :AV<CR>
+"打开鼠标下的文件
+nnoremap <Space>i :IHV<CR>
 " let g:EasyGrepRecursive = 1
 " let g:EasyGrepWindowPosition = botright
 " let g:EasyGrepCommand = 1
 " let g:EasyGrepJumpToMatch = 0
 " syntastic------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
