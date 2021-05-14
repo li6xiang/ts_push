@@ -184,7 +184,7 @@ let g:syntastic_mode_map = {
 nnoremap <Tab> %
 "set path to current dir ,so gf can find head file
 let &path .= getcwd().'/**'
-nnoremap gd g*
+nnoremap gd g*N
 
 " 当新建 .h .c .hpp .cpp .mk .sh等文件时自动调用SetTitle 函数
 autocmd BufNewFile *.[ch],*.hpp,*.cpp,Makefile,*.mk,*.sh exec ":call SetTitle()"
